@@ -26,22 +26,27 @@ LILA는 로그인 기능을 구현하지 않아도 웹으로 쉽게 구현이 �
 - User
   - ID
     - string
+    - 유니크 키
   - Password
     - string
   - Name
     - string
+    - NULL 가능
 
 - Service
   - ID
     - string
+    - 왜래키
   - Table ID
     - string
+    - 왜래키
 
 - Table
   - Group
     - string
   - Table ID
     - INT
+    - 유니크 키
   - ID
     - string
   - Password
