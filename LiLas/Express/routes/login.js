@@ -40,7 +40,6 @@ router.get('/new', function (req, res, next) {
             })
         }
     });
-
 });
 
 module.exports = router;
