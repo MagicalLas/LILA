@@ -22,14 +22,12 @@ function parseQuery(query, f) {
 /* GET home page. */
 router.get('/new', function (req, res, next) {
     var query = req.query;
-
-    connection.query("insert Service(SC, group_name, group_SC) values ?",[parseQuery(query,(name)=>Hash.makeHash(name))],(er)=>{
+    connection.query("insert Service(SC, group_name, group_SC) values ?", [parseQuery(query, (name) => Hash.makeHash(name))], (er) => {
         res.send({
-            status:(!er),
-            secretKey : (!er)?Hash.makeHash(query.name):""
+            status: (!er),
+            secretKey: (!er) ? Hash.makeHash(query.name) : ""
         });
     });
-
 });
 
 module.exports = router;
