@@ -1,7 +1,7 @@
 var crypto = require('crypto');
-var shasum = crypto.createHash('sha1');
 
-export function makeHash(msg){
+module.exports.makeHash = function(msg){
+    var shasum = crypto.createHash('sha1');
     shasum.update(msg);
     return shasum.digest('hex');
-}
+};
