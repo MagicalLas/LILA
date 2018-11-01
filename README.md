@@ -26,8 +26,8 @@ LILA는 로그인 기능을 구현하지 않아도 웹으로 쉽게 구현이 �
 
 ## ERD
 
-![image](./ERD.png)
-
+![image](./Image/ERD.png)
+![image](./Image/ERD2.png)
 1:N인 User와 Table의 관계이다.
 
 ## Table
