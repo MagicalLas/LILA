@@ -1,5 +1,3 @@
-import {makeHash} from "../Lila_tools/Hash";
-
 var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
