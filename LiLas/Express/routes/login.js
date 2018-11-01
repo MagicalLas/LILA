@@ -4,16 +4,17 @@ var mysql = require('mysql');
 var Hash = require('../Lila_tools/Hash');
 
 var connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : '6644',
-    port     : '6644',
-    database : 'Lila',
-    insecureAuth:true
+    host: 'localhost',
+    user: 'root',
+    password: '6644',
+    port: '6644',
+    database: 'Lila',
+    insecureAuth: true
 });
-function parseQuery(query){
+
+function parseQuery(query) {
     return [
-        [query.name,query.id,query.pass]
+        [query.name, query.id, query.pass]
     ];
 };
 /* GET home page. */
