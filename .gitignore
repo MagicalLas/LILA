@@ -62,3 +62,7 @@ Build/
 UnitTest/Debug/
 node_modules/
 Server/uploads/
+
+# Python VENE
+venv/
+*.pyc
