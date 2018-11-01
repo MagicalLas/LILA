@@ -17,6 +17,15 @@ function parseQuery(query) {
         [query.name, query.id, query.pass]
     ];
 };
+
+function is_idSame(id_count, res) {
+    if (id_count > 0) {
+        res.send({state: false, secretKey: ""});
+        return false;
+    }
+    return true;
+}
+
 /* GET home page. */
 router.get('/new', function (req, res, next) {
     console.log(req.query);
