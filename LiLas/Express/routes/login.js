@@ -28,10 +28,19 @@ function is_idSame(id_count, res) {
 
 /* GET home page. */
 router.get('/new', function (req, res, next) {
-    console.log(req.query);
-    console.log(makeHash(req.query.id));
-    connection.query("insert into User(name, id, password) values ?",[parseQuery(req.query)]);
-    res.send(true);
+    var query = req.query;
+    var id_pass = true;
+
+    connection.query("select * from User Where id='" + query.id + "'", (err, result, fields) => {
+        id_pass = is_idSame(result.length, res);
+        if (id_pass) {
+            connection.query("insert into User(name, id, password) values ?", [parseQuery(query)], () => {
+                let hash = Hash.makeHash(query.id);
+                res.send({state: true, secretKey: hash});
+            })
+        }
+    });
+
 });
 
 module.exports = router;
