@@ -12,16 +12,24 @@ var connection = mysql.createConnection({
     insecureAuth: true
 });
 
-function parseQuery(query) {
+function parseQuery(query, f) {
     return [
-        [query.name, query.id, query.pass]
+        [query.SC, query.name, f(query.name)]
     ];
 };
 
 
 /* GET home page. */
 router.get('/new', function (req, res, next) {
-    res.send("Group");
+    var query = req.query;
+
+    connection.query("insert Service(SC, group_name, group_SC) values ?",[parseQuery(query,(name)=>Hash.makeHash(name))],(er)=>{
+        res.send({
+            status:(!er),
+            secretKey : (!er)?Hash.makeHash(query.name):""
+        });
+    });
+
 });
 
 module.exports = router;
