@@ -62,3 +62,13 @@ LILA는 로그인 기능을 구현하지 않아도 웹으로 쉽게 구현이 �
     - string
   - etc
     - 추가 가능
+
+## Command
+
+| End Point | arg | desription  |
+| --------- |:---:| -----------:|
+| Login/new   |        | 새로운 계정 등록 |
+| Group/new   |        | 새로운 그룹 등록 |
+| Group/add   |  User  | 새로운 유저 등록 |
+| Group/login |  User  | 그룹에 유저가 있는지 확인 |
+| Account/group |   | 관리하는 그룹 표시 |
