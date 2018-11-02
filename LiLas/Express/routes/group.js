@@ -16,13 +16,13 @@ function parseQuery(query, f) {
     return [
         [query.SC, query.name, f(query.SC + query.name)]
     ];
-};
+}
 
 function parseUser(query) {
     return [
         [query.GSC, query.id, query.password, query.json]
     ];
-};
+}
 
 /* GET home page. */
 router.get('/new', (req, res) => {
@@ -45,26 +45,44 @@ router.get('/add', (req, res) => {
     });
 });
 
-function parseLogin(query){
+function parseLogin(query) {
     function f(mes) {
-        return "'"+mes+"'";
+        return "'" + mes + "'";
     }
-    return ["group_SC="+f(query.GSC),"id="+f(query.id),"password="+f(query.password)]
+
+    return ["group_SC=" + f(query.GSC), "id=" + f(query.id), "password=" + f(query.password)];
 }
+
 router.get('/login', (req, res) => {
     var query = req.query;
     let parsed = parseLogin(query);
     console.log((parsed));
-    connection.query("select * from GroupTable where "+parsed[0]+" and "+parsed[1]+" and "+parsed[2],(er,row)=>{
+    connection.query("select * from GroupTable where " + parsed[0] + " and " + parsed[1] + " and " + parsed[2], (er, row) => {
         res.send({
             status: (!er),
-            metaData : row[0].user_json
+            metaData: row[0].user_json
         });
     });
 });
 
-router.get('/change',(req, res)=>{
+function parseChange(query) {
+    function f(mes) {
+        return "'" + mes + "'";
+    }
 
-})
+    return ["group_SC = " + f(query.GSC), " id = " + f(query.id)];
+}
+
+router.get('/change', (req, res) => {
+    var query = req.query;
+    let parsed = parseChange(query);
+    console.log(query.metadata.toString());
+    connection.query("update GroupTable set user_json = '" + query.metadata.toString() + "' where " + parsed[0] + " and " + parsed[1], (er, row) => {
+        console.log(er);
+        res.send({
+            status: (!er)
+        });
+    });
+});
 
 module.exports = router;
