@@ -14,7 +14,7 @@ var connection = mysql.createConnection({
 
 function parseQuery(query, f) {
     return [
-        [query.SC, query.name, f(query.name)]
+        [query.SC, query.name, f(query.SC + query.name)]
     ];
 };
 
@@ -38,7 +38,7 @@ router.get('/new', function (req, res, next) {
 router.get('/add', function (req, res, next) {
     var query = req.query;
     console.log(query);
-    connection.query("insert into GroupTable(group_id, id, password, user_json) values ?", [parseUser(query)], (er) => {
+    connection.query("insert into GroupTable(group_SC, id, password, user_json) values ?", [parseUser(query)], (er) => {
         console.log(er);
         res.send({
             status: (!er)
