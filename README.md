@@ -69,8 +69,8 @@ LILA는 로그인 기능을 구현하지 않아도 웹으로 쉽게 구현이 �
 | End Point | arg | desription  |
 | --------- |:---:| -----------:|
 | Login/new     |                                    | 새로운 계정 등록 |
-| Group/new     | Sc Key                             | 새로운 그룹 등록 |
+| Group/new     |  Sc Key                            | 새로운 그룹 등록 |
 | Group/add     |  Group_Sc, Id, Password, Metadata  | 새로운 유저 등록 |
-| Group/change  |  Group_Sc, Id, Password, Metadata  | 새로운 유저 등록 |
+| Group/change  |  Group_Sc, Id, Metadata            | 새로운 유저 등록 |
 | Group/login   |  Group_Sc, Id, Password            | 그룹에 유저가 있는지 확인 |
 | Account/group |                                    | 관리하는 그룹 표시 |
