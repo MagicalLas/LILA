@@ -37,11 +37,28 @@ router.get('/new', function (req, res, next) {
 
 router.get('/add', function (req, res, next) {
     var query = req.query;
-    console.log(query);
     connection.query("insert into GroupTable(group_SC, id, password, user_json) values ?", [parseUser(query)], (er) => {
         console.log(er);
         res.send({
             status: (!er)
+        });
+    });
+});
+
+function parseLogin(query){
+    function f(mes) {
+        return "'"+mes+"'";
+    }
+    return ["group_SC="+f(query.GSC),"id="+f(query.id),"password="+f(query.password)]
+}
+router.get('/login', function (req, res, next) {
+    var query = req.query;
+    let parsed = parseLogin(query);
+    console.log((parsed));
+    connection.query("select * from GroupTable where "+parsed[0]+" and "+parsed[1]+" and "+parsed[2],(er,row)=>{
+        res.send({
+            status: (!er),
+            metaData : row[0].user_json
         });
     });
 });
