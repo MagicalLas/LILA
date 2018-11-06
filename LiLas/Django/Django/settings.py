@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'Django.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Lila', # DB명
+        'USER': 'root', # 데이터베이스 계정
+        'PASSWORD': '6644', # 계정 비밀번호
+        'HOST': 'localhost', # 데이테베이스 주소(IP)
+        'PORT': '6644', # 데이터베이스 포트(보통은 3306)
     }
 }
 
