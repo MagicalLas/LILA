@@ -4,7 +4,7 @@ LILA is Login API
 
 ## Discription
 
-LILA는 로그인 기능을 구현하지 않아도 웹으로 쉽게 구현이 가능하게 하는 프로젝트입니다. RESTFUL API로 로그인 기능을 구현하며, 동적 할당이 가능합니다.
+LILA는 로그인 기능을 구현하지 않아도 웹으로 쉽게 구현이 가능하게 하는 프로젝트입니다. RESTFUL API로 로그인 기능을 구현하며, 동적 할당이 가능합니다. GraphQL를 일부 채택하였으며 현재 Node로 구현된 구현체가 존재합니다. Mysql은 Docker로 실행됩니다. 현재 Django로 다시 제작중입니다.
 
 ## Requirements
 
