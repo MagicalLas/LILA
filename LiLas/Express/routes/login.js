@@ -27,7 +27,7 @@ function is_idSame(id_count, res) {
 }
 
 /* GET home page. */
-router.get('/new', (req, res) =>  {
+router.post('/new', (req, res) =>  {
     var query = req.query;
     var id_pass = true;
 

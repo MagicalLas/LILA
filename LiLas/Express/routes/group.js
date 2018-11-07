@@ -25,7 +25,7 @@ function parseUser(query) {
 }
 
 /* GET home page. */
-router.get('/new', (req, res) => {
+router.post('/new', (req, res) => {
     var query = req.query;
     connection.query("insert into Service(SC, group_name, group_SC) values ?", [parseQuery(query, (name) => Hash.makeHash(name))], (er) => {
         res.send({
@@ -35,7 +35,7 @@ router.get('/new', (req, res) => {
     });
 });
 
-router.get('/add', (req, res) => {
+router.post('/add', (req, res) => {
     var query = req.query;
     connection.query("insert into GroupTable(group_SC, id, password, user_json) values ?", [parseUser(query)], (er) => {
         console.log(er);
@@ -53,7 +53,7 @@ function parseLogin(query) {
     return ["group_SC=" + f(query.GSC), "id=" + f(query.id), "password=" + f(query.password)];
 }
 
-router.get('/login', (req, res) => {
+router.post('/login', (req, res) => {
     var query = req.query;
     let parsed = parseLogin(query);
     console.log((parsed));
@@ -73,7 +73,7 @@ function parseChange(query) {
     return ["group_SC = " + f(query.GSC), " id = " + f(query.id)];
 }
 
-router.get('/change', (req, res) => {
+router.post('/change', (req, res) => {
     var query = req.query;
     let parsed = parseChange(query);
     console.log(query.metadata.toString());
