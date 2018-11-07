@@ -32,6 +32,12 @@ router.get('/new', (req, res) =>  {
     var id_pass = true;
 
     connection.query("select * from User Where id='" + query.id + "'", (err, result, fields) => {
+        if(err){
+            res.send({state: false, secretKey: ""});
+
+            console.log(err);
+            return false;
+        }
         id_pass = is_idSame(result.length, res);
         if (id_pass) {
             connection.query("insert into User(name, id, password) values ?", [parseQuery(query)], () => {

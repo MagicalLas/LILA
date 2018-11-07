@@ -14,7 +14,7 @@ var connection = mysql.createConnection({
 
 function parseQuery(query, f) {
     return [
-        [query.SC, query.name, f(query.SC + query.name)]
+        [query.SC, query.name, f(query.name + query.SC)]
     ];
 }
 
@@ -30,7 +30,7 @@ router.get('/new', (req, res) => {
     connection.query("insert into Service(SC, group_name, group_SC) values ?", [parseQuery(query, (name) => Hash.makeHash(name))], (er) => {
         res.send({
             status: (!er),
-            secretKey: (!er) ? Hash.makeHash(query.name) : ""
+            secretKey: (!er) ? Hash.makeHash(query.name + query.SC) : ""
         });
     });
 });
@@ -59,8 +59,8 @@ router.get('/login', (req, res) => {
     console.log((parsed));
     connection.query("select * from GroupTable where " + parsed[0] + " and " + parsed[1] + " and " + parsed[2], (er, row) => {
         res.send({
-            status: (!er),
-            metaData: row[0].user_json
+            status: (!er)&&(row.length>0),
+            metaData: row.length>0?row[0].user_json:null
         });
     });
 });

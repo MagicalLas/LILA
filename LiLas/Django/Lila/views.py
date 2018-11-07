@@ -3,4 +3,5 @@ from django.http import HttpResponse
 # Create your views here.
 
 def LasMain(req):
-    return HttpResponse('Las Wonho')
+    print(req.GET['name'])
+    return render(req,'index.html',{'NAME':req.GET['name']})
