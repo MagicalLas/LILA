@@ -12,6 +12,7 @@ var connection = mysql.createConnection({
 });
 
 router.get('/group', (req, res) => {
+
 });
 
 module.exports = router;
