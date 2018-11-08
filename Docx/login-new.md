@@ -8,7 +8,7 @@
 
 ## result
 
-```json
+```
 {
     state:true,
     Sc_Key:0932b4d24f8acb7eb7a
