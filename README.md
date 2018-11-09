@@ -44,7 +44,7 @@ LILA는 로그인 기능을 구현하지 않아도 웹으로 쉽게 구현이 �
     - NULL 가능
 
 - Service
-  - ID
+  - ID  
     - string
     - 왜래키
   - Table ID
@@ -69,8 +69,8 @@ LILA는 로그인 기능을 구현하지 않아도 웹으로 쉽게 구현이 �
 | End Point | arg | desription  |
 | --------- |:---:| -----------:|
 | Login/new     |  Id, pass, Name                    | [새로운 계정 등록](./Docx/login-new.md)|
-| Group/new     |  Sc_Key, Name                      | 새로운 그룹 등록 |
-| Group/add     |  Group_Sc, Id, password, json      | 새로운 유저 등록 |
+| Group/new     |  Sc_Key, Name                      | [새로운 그룹 등록](./Docx/group-new.md)|
+| Group/add     |  Group_Sc, Id, password, json      | [새로운 유저 등록](./Docx/group-add.md)|
 | Group/change  |  Group_Sc, Id, json                | 유저 정보 변경   |
 | Group/login   |  Group_Sc, Id, Password            | 그룹에 유저가 있는지 확인 |
 | Account/group |                                    | 관리하는 그룹 표시 |
