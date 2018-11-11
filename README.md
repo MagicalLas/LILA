@@ -47,22 +47,19 @@ LILA는 로그인 기능을 구현하지 않아도 웹으로 쉽게 구현이 �
   - ID  
     - string
     - 왜래키
-  - Table ID
+  - GSC
     - string
     - 왜래키
 
 - Table
-  - Group
+  - GSC
     - string
-  - Table ID
-    - INT
-    - 유니크 키
   - ID
     - string
   - Password
     - string
-  - etc
-    - 추가 가능
+  - user_json
+    - string(2000)
 
 ## Command
 
