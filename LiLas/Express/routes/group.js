@@ -65,6 +65,15 @@ router.get('/login', (req, res) => {
     });
 });
 
+router.get('/page', function(req, res, next) {
+    var f = (mes) => "'" + mes + "'";
+    var query = req.query;
+
+    connection.query("select * from GroupTable group_SC="+f(query.GSC),(err, row)=>{
+        res.send(row.slice(query.ack,query.number));
+    });
+});
+
 function parseChange(query) {
     function f(mes) {
         return "'" + mes + "'";
