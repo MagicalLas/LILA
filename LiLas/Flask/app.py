@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 import mysql.connector
 import hashlib
-import json
 
 mydb = mysql.connector.connect(
     host="localhost",
@@ -14,16 +13,18 @@ mydb = mysql.connector.connect(
 
 app = Flask(__name__)
 
-
-def wrappin(data):
-    return '"' + data + '"'
-
+def format3(string,arg1,arg2,arg3):
+    return string%(arg1,arg2,arg3)
 
 @app.route('/login/new')
 def hello_world():
-    data = request.data
+    name = request.args.get('name')
+    password = request.args.get('pass')
+    id = request.args.get('id')
+
     mycursor = mydb.cursor()
-    mycursor.execute("insert into User(name, id, password) values('wonho', 'haho', '6644')")
+    mycursor.execute(format3("insert into User(name, id, password) values('%s', '%s', '%s')",name, id, password))
+
     return jsonify({'state': True, 'secretKey': hashlib.sha1(b'wonho').hexdigest()})
 
 
