@@ -5,9 +5,18 @@
 - SC
 - name
 
+## input
+
+```text
+{
+    SC:'YourKey',
+    name:'GroupName'
+}
+```
+
 ## result
 
-```
+```JavaScript
 {
     state:true,
     GSC:0932b4d24f8acb7eb7a

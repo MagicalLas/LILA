@@ -6,6 +6,16 @@
 - id
 - json
 
+## input
+
+```text
+{
+    GSC:'YourGroutKey',
+    id:'GroupUserName',
+    json:'UserData'
+}
+```
+
 ## result
 
 ```JavaScript

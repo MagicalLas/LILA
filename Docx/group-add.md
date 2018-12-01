@@ -7,6 +7,17 @@
 - password
 - json
 
+## input
+
+```text
+{
+    GSC:'GroupKey',
+    id:'GroupUserId',
+    password:'GroupUserPassword',
+    json:'UserMetaData'
+}
+```
+
 ## result
 
 ```JavaScript

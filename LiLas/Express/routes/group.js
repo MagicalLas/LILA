@@ -29,7 +29,7 @@ router.get('/new', (req, res) => {
     var query = req.query;
     connection.query("insert into Service(SC, group_name, group_SC) values ?", [parseQuery(query, (name) => Hash.makeHash(name))], (er) => {
         res.send({
-            status: (!er),
+            state: (!er),
             secretKey: (!er) ? Hash.makeHash(query.name + query.SC) : ""
         });
     });
@@ -40,7 +40,7 @@ router.get('/add', (req, res) => {
     connection.query("insert into GroupTable(group_SC, id, password, user_json) values ?", [parseUser(query)], (er) => {
         console.log(er);
         res.send({
-            status: (!er)
+            state: (!er)
         });
     });
 });
@@ -59,7 +59,7 @@ router.get('/login', (req, res) => {
     console.log((parsed));
     connection.query("select * from GroupTable where " + parsed[0] + " and " + parsed[1] + " and " + parsed[2], (er, row) => {
         res.send({
-            status: (!er)&&(row.length>0),
+            state: (!er)&&(row.length>0),
             metaData: row.length>0?row[0].user_json:null
         });
     });
@@ -89,7 +89,7 @@ router.get('/change', (req, res) => {
     connection.query("update GroupTable set user_json = '" + query.metadata.toString() + "' where " + parsed[0] + " and " + parsed[1], (er, row) => {
         console.log(er);
         res.send({
-            status: (!er)
+            state: (!er)
         });
     });
 });

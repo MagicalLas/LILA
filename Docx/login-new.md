@@ -6,6 +6,16 @@
 - pass
 - name
 
+## input
+
+```text
+{
+    id:'LILA_ID',
+    pass:'LILA_PASSWORD',
+    name:'YOUR_NAME'
+}
+```
+
 ## result
 
 ```JavaScript

@@ -6,6 +6,16 @@
 - id
 - password
 
+## input
+
+```text
+{
+    GSC:'GroupKey',
+    id:''GroupUserId,
+    password:'GroupUserPassword'
+}
+```
+
 ## result
 
 ```JavaScript
