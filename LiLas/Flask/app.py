@@ -28,5 +28,18 @@ def hello_world():
     return jsonify({'state': True, 'secretKey': hashlib.sha1(b'wonho').hexdigest()})
 
 
+@app.route('/group/add')
+def hello_world():
+    GSC = request.args.get('GSC')
+    id = request.args.get('id')
+    password = request.args.get('pass')
+    json_data = request.args.get('json')
+
+    mycursor = mydb.cursor()
+    mycursor.execute(format3("insert into GroupTable(user_json, id, password, GSC) values('%s', '%s', '%s')",name, id, password))
+
+    return jsonify({'state': True, 'secretKey': hashlib.sha1(b'wonho').hexdigest()})
+
+
 if __name__ == '__main__':
     app.run()
